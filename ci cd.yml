@@ -1,1 +1,77 @@
 
+# Workflow ka naam jo GitHub Actions tab mein dikhega
+name: CICD
+
+# Workflow kab start hoga
+on:
+  # Manually Run workflow button se start kar sakte hain
+  workflow_dispatch:
+
+# Workflow ke andar saare jobs define hote hain
+jobs:
+
+  # JOB 1: Code ko clone karna
+  code:
+
+    # GitHub ki Ubuntu virtual machine use hogi
+    runs-on: ubuntu-latest
+
+    # Job ke andar steps define honge
+    steps:
+
+      # Step ka naam
+      - name: clone the code
+
+        # Terminal mein message print hoga
+        # Note: Ye actual code clone nahi karta
+        run: echo "cloning the code"
+
+
+  # JOB 2: Application ko build karna
+  build:
+
+    # Ubuntu virtual machine par job chalega
+    runs-on: ubuntu-latest
+
+    # Build job ke steps
+    steps:
+
+      # Step ka naam
+      - name: build using docker
+
+        # Sirf message print hoga, Docker build nahi hoga
+        run: echo "building using docker"
+
+
+  # JOB 3: Application ki testing karna
+  test:
+
+    # Testing ke liye Ubuntu virtual machine
+    runs-on: ubuntu-latest
+
+    # Testing ke steps
+    steps:
+
+      # Step ka naam
+      - name: Running test cases
+
+        # Sirf testing ka message print hoga
+        # Actual test cases execute nahi honge
+        run: echo "testing the app"
+
+
+  # JOB 4: Application ko deploy karna
+  deploy:
+
+    # Deployment ke liye Ubuntu virtual machine
+    runs-on: ubuntu-latest
+
+    # Deployment ke steps
+    steps:
+
+      # Step ka naam
+      - name: deploying on the machine
+
+        # Sirf deployment ka message print hoga
+        # Actual application deploy nahi hogi
+        run: echo "deploying the code"
