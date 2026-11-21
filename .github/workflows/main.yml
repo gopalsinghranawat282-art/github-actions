@@ -1,0 +1,28 @@
+# Workflow ka naam, jo Actions tab me dikhai dega
+name: Hello
+
+# Ye batata hai ki workflow kab run hoga
+on:
+  # Workflow ko manually run karne ke liye
+  # GitHub par "Run workflow" button aayega
+  workflow_dispatch:
+
+# jobs ke andar workflow ke tasks define hote hain
+jobs:
+
+  # Job ka naam (hum apni marzi se rakh sakte hain)
+  say-hello:
+
+    # Job kis operating system ke virtual machine par chalega
+    # ubuntu-latest = GitHub ka latest Ubuntu runner
+    runs-on: ubuntu-latest
+
+    # Steps = is job ke andar kya-kya kaam hoga
+    steps:
+
+      # Step ka naam, jo Actions log me dikhai dega
+      - name: say hello to everyone
+
+        # Run ke andar command execute hoti hai
+        # echo terminal par text print karta hai
+        run: echo "hello dosto"
