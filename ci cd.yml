@@ -29,7 +29,8 @@ jobs:
 
   # JOB 2: Application ko build karna
   build:
-
+    needs: [code]
+    
     # Ubuntu virtual machine par job chalega
     runs-on: ubuntu-latest
 
@@ -45,6 +46,7 @@ jobs:
 
   # JOB 3: Application ki testing karna
   test:
+    needs: [build]
 
     # Testing ke liye Ubuntu virtual machine
     runs-on: ubuntu-latest
@@ -62,6 +64,8 @@ jobs:
 
   # JOB 4: Application ko deploy karna
   deploy:
+    needs: [build,test]
+    
 
     # Deployment ke liye Ubuntu virtual machine
     runs-on: ubuntu-latest
